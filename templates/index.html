@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFRI_MentorLink</title>
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --text-dark: #1f2937;
+            --bg-page: #f9fafb;
+            --border: #e5e7eb;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-page); color: var(--text-dark); margin: 0; }
+        
+        /* Header style */
+        header { background: white; padding: 1rem 2rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+        .logo-box { background: var(--primary-blue); color: white; padding: 6px 12px; border-radius: 6px; font-weight: bold; }
+        
+        /* Main container */
+        .container { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+        h1 { font-size: 40px; font-weight: 800; margin-bottom: 2rem; }
+        h1 span { color: var(--primary-blue); }
+
+        /* Form style */
+        .search-form { background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end; }
+        .form-group { flex: 1; min-width: 200px; }
+        label { font-size: 14px; font-weight: 600; margin-bottom: 0.5rem; display: block; }
+        select, input { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background-color: white; }
+        button { background-color: #16a34a; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+
+        /* Results style */
+        .result-card { background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid #16a34a; margin-top: 1.5rem; }
+        .result-name { font-size: 18px; font-weight: 700; color: #16a34a; margin-bottom: 0.5rem; }
+        .badge { background: #d1fae5; color: #065f46; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-box">M</div>
+        <div style="font-weight:700; font-size: 18px;">MentorLink</div>
+    </header>
+
+    <div class="container">
+        <h1>Trouvez votre <span>binôme</span><br>sur le campus</h1>
+
+        <form method="POST" class="search-form">
+            <div class="form-group">
+                <label>Compétence recherchée :</label>
+                <select name="competence" required>
+                    <option value="">-- Choisir une compétence --</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="Web">Web</option>
+                    <option value="SQL">SQL</option>
+                    <option value="Reseaux">Reseaux</option>
+                    <option value="Langage C">Langage C</option>
+                    <option value="Suites">Suites</option>
+                    <option value="Graphitie">Graphitie</option>
+                    <option value="Équation différentielle">Équation différentielle</option>
+                    <option value="Anglais">Anglais</option>
+                    <option value="Infographie">Infographie</option>
+                    <option value="Recherche Opérationnel">Recherche Opérationnel</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Heure (24h) :</label>
+                <input type="number" name="heure" placeholder="ex: 14" required>
+            </div>
+            <div class="form-group">
+                <label>Filière (optionnel) :</label>
+                <select name="filiere">
+                    <option value="">-- Choisir une filière --</option>
+                    <option value="GL">GL</option>
+                    <option value="SI">SI</option>
+                    <option value="SEIOT">SEIOT</option>
+                    <option value="IA">IA</option>
+                </select>
+            </div>
+            <button type="submit">Rechercher</button>
+        </form>
+
+        <div class="mt-4">
+            {% if resultats %}
+                <h3 style="margin-top: 2rem;">Résultats trouvés :</h3>
+                {% for m in resultats %}
+                <div class="result-card">
+                    <div class="result-name">{{ m.nom }}</div>
+                    <p>Filière : {{ m.filiere }}</p>
+                    <p>Matières : {{ m.competences }}</p>
+                    <p>Disponibilité : {{ m.disponibilites_heure }}h</p>
+                    <p>Format : {{ m.format_mentorat }}</p>
+                    <p>Score : <span class="badge">{{ m.score }}%</span></p>
+                </div>
+                {% endfor %}
+            {% elif request.method == 'POST' %}
+                <p style="margin-top: 2rem; color: #92400e;">Aucun mentor trouvé pour ces critères.</p>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
