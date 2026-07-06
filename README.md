@@ -7,6 +7,22 @@ Application simplifiée de mise en relation entre mentorés et mentors.
 - Matching intelligent basé sur une tolérance horaire de ± 1 heure.
 - Interface moderne avec Bootstrap.
 
+- ## Technologies utilisées
+- **Backend** : Python (Flask)
+- **Frontend** : HTML, CSS, Bootstrap 
+- **Base de données** : MySQL
+- 
+## Structure du projet :
+RPIL_2526_GASSARI_Idrissou/
+├── app.py              # Cœur du projet : Logique Flask, routage et matching
+├── database.py         # Gestion de la connexion SQL (MySQL ou SQLite)
+├── schema.sql          # Script SQL pour créer vos tables et insérer vos 3 mentors
+├── static/
+│   └── style.css       # Votre design (optionnel si vous utilisez Bootstrap via CDN)
+└── templates/
+    └── index.html      # Le formulaire et l'affichage des résultats
+    
+
 ## Installation
 1. Cloner le dépôt.
 2. Créer l'environnement virtuel : `python -m venv venv`
