@@ -14,11 +14,16 @@ Application simplifiée de mise en relation entre mentorés et mentors.
 - 
 ## Structure du projet :
 RPIL_2526_GASSARI_Idrissou/
+
 ├── app.py              # Cœur du projet : Logique Flask, routage et matching
-├── database.py         # Gestion de la connexion SQL (MySQL ou SQLite)
+
+├── database.py         # Gestion de la connexion SQL (MySQL)
+
 ├── schema.sql          # Script SQL pour créer vos tables et insérer vos 3 mentors
+
 ├── static/
-│   └── style.css       # Votre design (optionnel si vous utilisez Bootstrap via CDN)
+│   └── style.css       
+
 └── templates/
     └── index.html      # Le formulaire et l'affichage des résultats
     
