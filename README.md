@@ -29,7 +29,8 @@ RPIL_2526_GASSARI_Idrissou/
     
 
 ## Installation
-1. Cloner le dépôt.
+1. Cloner le dépôt : `git clone https://github.com/Gismile/RPIL_2526_GASSARI_Idrissou.git`
+   puis acceder au dossier : `cd RPIL_2526_GASSARI_Idrissou`
 2. Créer l'environnement virtuel : `python -m venv venv`
 3. Activer l'environnement et installer les dépendances : `pip install flask mysql-connector-python`
 4. Importer la base de données `ifri_mentor` dans XAMPP via le fichier SQL fourni.
