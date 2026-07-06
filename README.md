@@ -35,3 +35,4 @@ RPIL_2526_GASSARI_Idrissou/
 3. Activer l'environnement et installer les dépendances : `pip install flask mysql-connector-python`
 4. Importer la base de données `ifri_mentor` dans XAMPP via le fichier SQL fourni.
 5. Lancer l'application : `python app.py`
+6. puis ouvrir : `http://127.0.0.1:5000`
